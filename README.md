@@ -25,6 +25,8 @@ project in \<project-id>|\<project-name>
 
 project out
 
+add project rights \<project-id>|\<project-name>|nothing \<project-rights>
+
 project history \<project-id>|\<project-name>|nothing
 
 project history nothing выводит историю текущего проекта.
@@ -39,6 +41,8 @@ description: String = ""
 
 rights: Rights
 
+history: History
+
 ### Задачи по проекту
 
 map выводит граф всех задач по проекту.
@@ -49,7 +53,7 @@ create task \<task-name>
 
 add task description \<task-id>|\<task-name> \<task-description>
 
-add task action <task-id>|<task-name> <task-action>
+add task action \<task-id>|\<task-name> \<task-action>
 
 select \<task-id>|\<task-name>
 
