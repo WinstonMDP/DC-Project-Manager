@@ -89,7 +89,7 @@ history: History
 
 selectDate: Date | nothing
 
-taskTime: Time
+time: Time
 
 ## Action
 
