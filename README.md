@@ -17,13 +17,13 @@ sign out
 
 ### Выбор проекта
 
-create project \<project-name>
-
-add project description \<project-description>
-
 project in \<project-id>|\<project-name>
 
 project out
+
+create project \<project-name>
+
+add project description \<project-description>
 
 add project rights \<project-id>|\<project-name>|nothing \<project-rights>
 
