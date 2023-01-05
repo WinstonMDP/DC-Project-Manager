@@ -45,7 +45,7 @@ history: History
 
 ### Задачи по проекту
 
-map выводит граф всех задач по проекту.
+show tasks выводит все available задачи.
 
 show task \<task-id>|\<task-name>|random
 
@@ -55,13 +55,17 @@ add task description \<task-id>|\<task-name> \<task-description>
 
 add task action \<task-id>|\<task-name> \<task-action>
 
-select \<task-id>|\<task-name>
+activate \<task-id>|\<task-name> статус с unavailable в available.
 
-deselect снимает текущую задачу с пользователя.
+deactivate \<task-id>|\<task-name> статус с available в unavailable.
 
-achieve \<task-id>|\<task-name>
+select \<task-id>|\<task-name> статус с available в selected.
 
-recover \<task-id>|\<task-name>
+deselect статус с selected в available.
+
+achieve \<task-id>|\<task-name> статус с selected в achieved.
+
+recover \<task-id>|\<task-name> статус с achieved в unavailable.
 
 task history \<task-id>|\<task-name>
 
@@ -69,7 +73,7 @@ task history \<task-id>|\<task-name>
 
 id: Integer
 
-status: {unselected, selected, achieved} = unselected
+status: {unavailable, available, selected, achieved} = unavailable
 
 selectedUser: User | nothing
 
@@ -92,6 +96,8 @@ taskTime: Time
 Actions должны предоставить возможность пользователям, например: ввести систему рейтинга,
 чтобы за каждую выполненную задачу человеку что-то начислялось,
 а за плохие действия списывалось; ввести ограничение на время выполнения задач;
+ввести последовательность в выполнении задач, позволив образовывать
+цепочки задач, то есть обязать выполнить, например, первую задачу перед второй;
 встроить какую-ту автоматическую проверку задач; или встроить автоматическое
 наполнение описания задач чем-то и т.д.
 
