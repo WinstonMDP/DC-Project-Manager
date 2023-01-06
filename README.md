@@ -27,7 +27,7 @@ add project rights \<project-id>|\<project-name>|nothing \<project-rights>
 
 project history \<project-id>|\<project-name>|nothing
 
-project history nothing выводит историю текущего проекта.
+project history выводит историю текущего проекта.
 
 ## Структура проекта
 
@@ -53,17 +53,13 @@ add task description \<task-id>|\<task-name> \<task-description>
 
 add task action \<task-id>|\<task-name> \<task-action>
 
-activate \<task-id>|\<task-name> статус с unavailable в available.
+select \<task-id>|\<task-name> статус с unselected в selected.
 
-deactivate \<task-id>|\<task-name> статус с available в unavailable.
-
-select \<task-id>|\<task-name> статус с available в selected.
-
-deselect статус с selected в available.
+deselect статус с selected в unselected.
 
 achieve \<task-id>|\<task-name> статус с selected в achieved.
 
-recover \<task-id>|\<task-name> статус с achieved в unavailable.
+recover \<task-id>|\<task-name> статус с achieved в unselected.
 
 task history \<task-id>|\<task-name>
 
@@ -71,7 +67,7 @@ task history \<task-id>|\<task-name>
 
 id: Integer
 
-status: {unavailable, available, selected, achieved} = unavailable
+status: {unselected, selected, achieved} = unselected
 
 selectedUser: User | nothing
 
@@ -82,12 +78,6 @@ description: String = ""
 action (что-то типо action в Git Actions): Action = nothing
 
 history: History
-
-### Если action реализовать не получится, то к структуре добавить
-
-selectDate: Date | nothing
-
-time: Time
 
 ## Action
 
