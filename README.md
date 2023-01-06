@@ -33,14 +33,6 @@ project history выводит историю текущего проекта.
 
 id: Integer
 
-name: String
-
-description: String = ""
-
-rights: Rights
-
-history: History
-
 ### Задачи по проекту
 
 show tasks выводит все available задачи.
@@ -67,19 +59,11 @@ task history \<task-id>|\<task-name>
 
 id: Integer
 
-status: {unselected, selected, achieved} = unselected
-
-selectedUser: User | nothing
-
-name: String
-
-description: String = ""
-
 action (что-то типо action в Git Actions): Action = nothing
 
-history: History
-
 ## Action
+
+Action имеет информацию о пользователе, выполнившем команду.
 
 Actions должны предоставить возможность пользователям, например: ввести систему рейтинга,
 чтобы за каждую выполненную задачу человеку что-то начислялось,
