@@ -23,7 +23,7 @@ collection out
 
 create collection \<collection-name>
 
-add collection description \<collection-name>
+add collection description \<collection-description>
 
 add collection action \<collection-action>
 
