@@ -37,9 +37,9 @@ action: Action
 
 ## Document
 
-show documents выводит все document-ы в сокращённой форме.
+documents выводит все document-ы в сокращённой форме.
 
-show document \<document-id>|\<document-name>|random
+document \<document-id>|\<document-name>|random
 
 create document \<document-name>
 
