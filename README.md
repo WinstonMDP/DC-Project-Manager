@@ -5,7 +5,7 @@
 Если чего-то нет по id,
 предложить по name.
 
-### Вход/регистрация пользователя
+## Вход/регистрация пользователя
 
 sign up \<user-name> \<user-email> \<user-password>
 
@@ -13,57 +13,59 @@ sign in \<user-name>|\<user-email> \<user-password>
 
 sign out
 
-### Выбор проекта
+add two-factor authentication ...
 
-project in \<project-id>|\<project-name>
+## Collection
 
-project out
+collection in \<collection-id>|\<collection-name>
 
-create project \<project-name>
+collection out
 
-add project description \<project-description>
+create collection \<collection-name>
 
-add project rights \<project-id>|\<project-name>|nothing \<project-rights>
+add collection description \<collection-name>
 
-project history \<project-id>|\<project-name>|nothing
+add collection action \<collection-action>
 
-project history выводит историю текущего проекта.
-
-## Структура проекта
+### Структура collection
 
 id: Integer
 
-### Задачи по проекту
+description: String
 
-show tasks выводит все available задачи.
+action: Action
 
-show task \<task-id>|\<task-name>|random
+## Document
 
-create task \<task-name>
+show documents выводит все document-ы в сокращённой форме.
 
-add task description \<task-id>|\<task-name> \<task-description>
+show document \<document-id>|\<document-name>|random
 
-add task action \<task-id>|\<task-name> \<task-action>
+create document \<document-name>
 
-select \<task-id>|\<task-name> статус с unselected в selected.
+add document field \<document-field>
 
-deselect статус с selected в unselected.
+delete document field \<document-field>
 
-achieve \<task-id>|\<task-name> статус с selected в achieved.
+edit document field value \<document-field> \<value>
 
-recover \<task-id>|\<task-name> статус с achieved в unselected.
-
-task history \<task-id>|\<task-name>
-
-## Структура задачи
+### Структура document
 
 id: Integer
 
-action (что-то типо action в Git Actions): Action = nothing
+user: User
 
-## Action
+...
 
-Action имеет информацию о пользователе, выполнившем команду.
+## Мотивация
+
+Эта документоориентированная база данных с простым интерфейсом и набором
+обязательных полей нужна для удобной настройки project/task manager КпЦ.
+Задачи - это те же документы, но с полем статуса
+выполнения, которое может быть абсолютно разным в зависимости
+от настроек системы, плюс функционал project/task manager может часто меняться, поэтому лучше обобщить project/task manager до такой базы данных.
+
+### Action
 
 Actions должны предоставить возможность пользователям, например: ввести систему рейтинга,
 чтобы за каждую выполненную задачу человеку что-то начислялось,
@@ -73,13 +75,13 @@ Actions должны предоставить возможность польз�
 встроить какую-ту автоматическую проверку задач; или встроить автоматическое
 наполнение описания задач чем-то и т.д.
 
-## Совет пользователям
+### Совет пользователям
 
 Время, рассчитанное на задачу, должно быть не больше суток.
 
-## Возможная интеграция с Git
+### Возможная интеграция с Git
 
-Имя коммита: "task.id: task.name"
+Имя коммита: "document.id: document.name"
 
 В git actions настроена проверка на то,
 что такая задача есть и её коммита ещё не было.
