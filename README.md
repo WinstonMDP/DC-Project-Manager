@@ -23,9 +23,6 @@ Project/task manager был упомянут лишь для указания м
 
 Action DDB - это CLI программа.
 
-Если чего-то нет по id,
-предложить по name.
-
 ### Вход/регистрация пользователя
 
 sign up \<user-name> \<user-email> \<user-password>
@@ -38,11 +35,11 @@ add two-factor authentication ...
 
 ### Collection
 
-collection in \<collection-id>|\<collection-name>
+collection in \<collection-id>
 
 collection out
 
-create collection \<collection-name>
+create collection
 
 add collection description \<collection-description>
 
@@ -60,9 +57,9 @@ action: Action
 
 documents выводит все document-ы в сокращённой форме.
 
-document \<document-id>|\<document-name>|random
+document \<document-id>|random
 
-create document \<document-name>
+create document
 
 add document field \<document-field>
 
