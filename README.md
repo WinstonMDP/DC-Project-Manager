@@ -45,9 +45,9 @@ add two-factor authentication (интерфейс ещё рассматрива�
 
 ### Collection
 
-collection in \<collection-id>
+collection in \<collection-id> входит в коллекцию
 
-collection out
+collection out выходит из коллекции
 
 create collection
 
