@@ -20,7 +20,8 @@ Project/task manager был упомянут лишь для указания м
 
 Actions - это что-то вроде GitHub Actions.
 
-Actions должны предоставить возможность пользователям, например: ввести систему рейтинга,
+Actions должны предоставить возможность пользователям, например: ввести
+систему рейтинга,
 чтобы за каждую выполненную задачу человеку что-то начислялось,
 а за плохие действия списывалось; ввести ограничение на время выполнения задач;
 ввести последовательность в выполнении задач, позволив образовывать
@@ -64,6 +65,8 @@ description: description.txt
 
 actions: \[*.action]
 
+documents: \[document]
+
 ### Document
 
 documents выводит все document-ы в сокращённой форме.
@@ -74,11 +77,13 @@ create document
 
 add document field \<document-field>
 
-delete document field \<document-field>
+remove document field \<document-field>
 
 edit document field value \<document-field> \<value>
 
 #### Структура document
+
+document представляется в формате json
 
 id: Integer
 
@@ -86,7 +91,7 @@ id: Integer
 
 ### Action
 
-filename.acton
+filename.action
 
 ```yml
 on <regex-of-commands>:
