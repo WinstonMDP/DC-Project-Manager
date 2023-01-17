@@ -2,8 +2,8 @@
 
 ## Введение
 
-Action DDB - это документоориентированная база данных 
-с простым интерфейсом, actions и набором обязательных полей.
+Action DDB - это документоориентированная база данных
+с простым интерфейсом и actions.
 Action DDB стала нужна для удобной настройки project/task manager КпЦ.
 
 Задачи (task) - это те же документы, но с полем статуса
@@ -16,8 +16,17 @@ Action DDB стала нужна для удобной настройки projec
 Project/task manager был упомянут лишь для указания мотивации\актуальности
 создания данного продукта (Action DDB).
 
-Чтобы понять техническую часть, нужно знать, что такое документоориентированная база данных
-и из каких частей она состоит.
+### Action
+
+Actions - это что-то вроде GitHub Actions.
+
+Actions должны предоставить возможность пользователям, например: ввести систему рейтинга,
+чтобы за каждую выполненную задачу человеку что-то начислялось,
+а за плохие действия списывалось; ввести ограничение на время выполнения задач;
+ввести последовательность в выполнении задач, позволив образовывать
+цепочки задач, то есть обязать выполнить, например, первую задачу перед второй;
+встроить какую-ту автоматическую проверку задач; или встроить автоматическое
+наполнение описания задач чем-то и т.д.
 
 ## Техническая часть
 
@@ -31,7 +40,7 @@ sign in \<user-name>|\<user-email> \<user-password>
 
 sign out
 
-add two-factor authentication ...
+add two-factor authentication (интерфейс ещё рассматривается)
 
 ### Collection
 
@@ -41,17 +50,19 @@ collection out
 
 create collection
 
-add collection description \<collection-description>
+edit collection description \<collection-description-file>
 
-add collection action \<collection-action>
+add collection action \<collection-action-file>
+
+remove collection action \<collection-action-file>
 
 #### Структура collection
 
 id: Integer
 
-description: String
+description: description.txt
 
-action: Action
+actions: \[*.action]
 
 ### Document
 
@@ -71,18 +82,18 @@ edit document field value \<document-field> \<value>
 
 id: Integer
 
-user: User
-
-...
+Остальные по решению пользователя.
 
 ### Action
 
-Actions - это что-то вроде GitHub Actions.
+filename.acton
 
-Actions должны предоставить возможность пользователям, например: ввести систему рейтинга,
-чтобы за каждую выполненную задачу человеку что-то начислялось,
-а за плохие действия списывалось; ввести ограничение на время выполнения задач;
-ввести последовательность в выполнении задач, позволив образовывать
-цепочки задач, то есть обязать выполнить, например, первую задачу перед второй;
-встроить какую-ту автоматическую проверку задач; или встроить автоматическое
-наполнение описания задач чем-то и т.д.
+```yml
+on <regex-of-commands>:
+    do:
+        <first-step>
+        <second-step>
+        ...
+```
+
+Action знает, кто запустил команду.

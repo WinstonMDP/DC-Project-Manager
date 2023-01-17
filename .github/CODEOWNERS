@@ -1,3 +1,6 @@
 .github/* @WinstonMDP
 .clang-format @WinstonMDP
+DevRules.md @WinstonMDP
 README.md @WinstonMDP
+*.cpp @WinstonMDP
+*.h @WinstonMDP
