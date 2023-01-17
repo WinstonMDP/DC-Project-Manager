@@ -78,7 +78,7 @@ add document field \<document-field>
 
 remove document field \<document-field>
 
-edit document field value \<document-field> \<value>
+edit document field \<document-field> \<value>
 
 #### Структура document
 
