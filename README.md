@@ -62,7 +62,7 @@ Action DDB - это CLI программа.
 
 `run \<command>`
 
-`\<command>` имеет mongodb синтакс, только без db и названия коллекции в начале.
+`\<command>` имеет mongodb синтакс, только без db и названия коллекции вначале.
 Например, вместо `db.testDb.insertOne...` `insertOne...`.
 
 ### Action
