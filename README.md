@@ -40,9 +40,9 @@ Action DDB - это CLI программа.
 
 ### Вход/регистрация пользователя
 
-`sign up \<user-name> \<user-email>` \<user-password>
+`sign up \<user-name> \<user-email> \<user-password>`
 
-`sign in \<user-name>|\<user-email>` \<user-password>
+`sign in \<user-name>|\<user-email> \<user-password>`
 
 `sign out`
 
