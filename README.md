@@ -2,8 +2,7 @@
 
 ## Введение
 
-Action DDB - это документоориентированная база данных
-с простым интерфейсом и actions.
+Action DDB - это mongodb с actions.
 Action DDB стала нужна для удобной настройки project/task manager КпЦ.
 
 Задачи (task) - это те же документы, но с полем статуса
@@ -35,77 +34,49 @@ Actions должны предоставить возможность польз�
 
 ## Техническая часть
 
-
 Action DDB - это CLI программа.
 
-| означает или.
+"|" означает "или".
 
 ### Вход/регистрация пользователя
 
-sign up \<user-name> \<user-email> \<user-password>
+`sign up \<user-name> \<user-email>` \<user-password>
 
-sign in \<user-name>|\<user-email> \<user-password>
+`sign in \<user-name>|\<user-email>` \<user-password>
 
-sign out
-
-add two-factor authentication (интерфейс ещё рассматривается)
+`sign out`
 
 ### Collection
 
-collection in \<collection-id> начинает работу с коллекцией.
+`collection in \<collection-id>|\<collection-name>` начинает работу с коллекцией.
 
-collection out завершает работу с коллекцией.
+`collection out` завершает работу с коллекцией.
 
-create collection
+`create collection`
 
-edit collection description \<collection-description-file>
+`create collection \<collection-name>`
 
-add collection action \<collection-action-file>
+`edit collection description \<edited-collection-description-file>`
 
-remove collection action \<collection-action-file>
+`edit collection action \<edited-collection-action-file>`
 
-#### Структура collection
+`run \<command>`
 
-id: Integer
-
-description: description.txt
-
-actions: \[*.action]
-
-documents: \[document]
-
-### Document
-
-documents выводит все document-ы в сокращённой форме.
-
-document \<document-id>|random
-
-create document
-
-add document field \<document-field>
-
-remove document field \<document-field>
-
-edit document field value \<document-field> \<value>
-
-#### Структура document
-
-document представляется в формате json
-
-id: Integer
-
-Остальные по решению пользователя.
+`\<command>` имеет mongodb синтакс, только без db и названия коллекции в начале.
+Например, вместо `db.testDb.insertOne...` `insertOne...`.
 
 ### Action
 
 filename.action
 
 ```yml
-on <regex-of-commands>:
-    do:
-        <first-step>
-        <second-step>
-        ...
-```
+before:
+# команды zsh, которые выполняются до выполнения команды от пользователя.
 
-Action знает, кто запустил команду.
+after:
+# команды zsh, которые выполняются после выполнения команды от пользователя.
+```
+Каждая строчка содержит одну команду.
+
+Команды action имеют доступ к данным пользователя, отправившего команду,
+а также к самой команде.
