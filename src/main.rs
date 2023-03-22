@@ -36,4 +36,6 @@ fn main() {
     handle_1.join().unwrap();
     handle_2.join().unwrap();
     handle_3.join().unwrap();
+    let mut a = Vec::new();
+    a.push(1);
 }
