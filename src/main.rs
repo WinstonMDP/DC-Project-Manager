@@ -11,9 +11,10 @@ enum Action {
 fn action_closure<'a>(action: Action) -> impl FnOnce() -> Result<Output, Error> + 'a {
     let filepath = "src/".to_owned()
         + match action {
-            Action::Before => "before.action",
-            Action::After => "after.action",
-        };
+            Action::Before => "before",
+            Action::After => "after",
+        }
+        + ".action";
     move || {
         shell(format!(
             "echo 161281 | su -c 'docker run --rm archlinux bash -c \"{}\"' MDPDockerUser",
